@@ -8,6 +8,7 @@ from model.prezzo_DTO import Prezzo
 
 class PrezzoDAO:
     @staticmethod
+    #static method è praticamente un insieme di funzioni che possiamo richiamare senza definire l'oggetto
     def get_prezzi(id_distributore) -> list[Prezzo] | None:
         """
         Restituisce tutti i prezzi di un distributore

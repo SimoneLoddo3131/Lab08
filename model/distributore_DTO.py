@@ -4,7 +4,6 @@ from database.prezzo_DAO import PrezzoDAO
 '''
     DTO (Data Transfer Object) dell'entità Distributore
 '''
-
 @dataclass()
 class Distributore:
     id: int
@@ -17,6 +16,12 @@ class Distributore:
     def get_prezzi(self):
         """ Aggiorna e Restituisce la lista di prezzi (self.lista_prezzi) associati al distributore"""
         # TODO
+        #posso mettere un if se self.lista is None così da non ripetere se è già stata eseguita la query
+
+        self.lista_prezzi=PrezzoDAO.get_prezzi(self.id)
+        return self.lista_prezzi
+
+
 
     def __eq__(self, other):
         return isinstance(other, Distributore) and self.id == other.id
